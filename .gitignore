@@ -1,0 +1,15 @@
+# Google API secrets - never commit these
+credentials.json
+token.json
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
