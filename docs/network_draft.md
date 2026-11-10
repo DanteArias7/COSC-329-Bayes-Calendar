@@ -41,6 +41,6 @@ Then use a utility function over ExamSuccess and Stress to compute the expected 
 
 ## Open questions
 
-- Mastery has 3 parents with 3 values each, so its CPT has 27 rows. Might generate it from a simple scoring rule instead of writing every row by hand.
-- Should DaysRemaining also point to ExamSuccess directly, or is going through Stress enough?
+- ~~Mastery has 3 parents with 3 values each, so its CPT has 27 rows. Might generate it from a simple scoring rule instead of writing every row by hand.~~ Done in Week 9, see [cpts.md](cpts.md).
+- ~~Should DaysRemaining also point to ExamSuccess directly, or is going through Stress enough?~~ Kept it through Stress only. That keeps the ExamSuccess CPT at 27 rows, and the effect of time still shows up in the test results.
 - Might add per-concept mastery later if there's a reason to recommend studying a specific concept.

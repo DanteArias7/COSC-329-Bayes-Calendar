@@ -8,13 +8,19 @@ COSC 329 project, Option 3 (Bayesian Calendar), solo.
 
 ```
 src/
-  model.py          Bayes net variables and structure (CPTs coming in Week 9)
+  model.py          Bayes net variables, structure and CPTs
+  inference.py      Inference queries (Variable Elimination)
   calendar_api.py   Google Calendar login + create/list/delete events
 scripts/
   test_calendar.py  Checks that Calendar login works with a test event
+  test_inference.py Runs test queries on example students
+  print_cpts.py     Writes every CPT to docs/cpt_tables.md
   draw_network.py   Draws the network to docs/network_draft.png
 docs/
-  network_draft.md  Variables, edges and reasoning for the draft network
+  network_draft.md  Variables, edges and reasoning for the network
+  cpts.md           Reasoning for every CPT + the inference task
+  cpt_tables.md     Full CPT tables
+  week9_inference_results.md  Test query results
 ```
 
 ## Setup
@@ -40,16 +46,18 @@ docs/
    ```
    The first run opens a browser to sign in. After that the login is saved in `token.json`.
 
-4. Check the network structure:
+4. Check the network and run test queries:
    ```
-   python -m src.model
+   python -m src.model               # builds the network and validates the CPTs
+   python scripts/test_inference.py  # example students -> P(Pass) and stress for each action
+   python scripts/print_cpts.py      # full CPT tables
    python scripts/draw_network.py
    ```
 
 ## Progress
 
 - [x] Week 8: project setup, Calendar API connection, first draft of the network
-- [ ] Week 9: CPTs, build the full network in pgmpy, test inference queries
+- [x] Week 9: CPTs, build the full network in pgmpy, test inference queries
 - [ ] Week 10: actions, utility function, expected utility
 - [ ] Week 11: schedule the chosen action on the calendar, simulate student scenarios
 - [ ] Week 12: results and report
