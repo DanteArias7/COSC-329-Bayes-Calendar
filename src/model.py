@@ -125,10 +125,13 @@ STRESS_BY_POINTS = {
 # ---------------------------------------------------------------------------
 # P(Pass) = base chance from Mastery + boost from today's plan - stress penalty
 PASS_BASE = {"Low": 0.35, "Medium": 0.65, "High": 0.88}
-# studying helps weaker students more than students who already know it
+# studying helps weaker students more than students who already know it.
+# Week 10: Light boost raised from (0.10, 0.07, 0.03). A 1 hour review gets you
+# more than 1/5 of the benefit of a 5 hour block (diminishing returns per hour),
+# and with the old values Light was never the best action. See docs/utility.md.
 PLAN_BOOST = {
     "Intense": {"Low": 0.25, "Medium": 0.15, "High": 0.05},
-    "Light":   {"Low": 0.10, "Medium": 0.07, "High": 0.03},
+    "Light":   {"Low": 0.15, "Medium": 0.10, "High": 0.04},
     "Rest":    {"Low": 0.00, "Medium": 0.00, "High": 0.00},
 }
 STRESS_PENALTY = {"Low": 0.00, "Medium": 0.05, "High": 0.15}

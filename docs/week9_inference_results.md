@@ -11,7 +11,7 @@ Pr(Mastery | evidence): Low 83.7%, Medium 15.2%, High 1.1%
 | StudyPlan | P(Pass) | P(Stress=Low) | P(Stress=Medium) | P(Stress=High) |
 |---|---|---|---|---|
 | Intense | 51.4% | 5.6% | 21.7% | 72.7% |
-| Light | 39.2% | 9.3% | 31.7% | 59.1% |
+| Light | 43.8% | 9.2% | 31.7% | 59.1% |
 | Rest | 31.7% | 16.8% | 40.8% | 42.4% |
 
 ## Struggling student, lots of time
@@ -23,7 +23,7 @@ Pr(Mastery | evidence): Low 83.7%, Medium 15.2%, High 1.1%
 | StudyPlan | P(Pass) | P(Stress=Low) | P(Stress=Medium) | P(Stress=High) |
 |---|---|---|---|---|
 | Intense | 55.0% | 16.8% | 40.8% | 42.4% |
-| Light | 43.3% | 28.5% | 44.0% | 27.5% |
+| Light | 47.9% | 28.5% | 44.0% | 27.5% |
 | Rest | 36.1% | 48.4% | 37.4% | 14.1% |
 
 ## Average student
@@ -35,7 +35,7 @@ Pr(Mastery | evidence): Low 15.3%, Medium 66.3%, High 18.4%
 | StudyPlan | P(Pass) | P(Stress=Low) | P(Stress=Medium) | P(Stress=High) |
 |---|---|---|---|---|
 | Intense | 70.6% | 15.8% | 39.4% | 44.8% |
-| Light | 64.8% | 27.1% | 43.3% | 29.5% |
+| Light | 67.7% | 27.1% | 43.3% | 29.5% |
 | Rest | 60.3% | 45.6% | 38.0% | 16.4% |
 
 ## Advanced student, exam soon
@@ -47,6 +47,6 @@ Pr(Mastery | evidence): Low 1.0%, Medium 12.4%, High 86.6%
 | StudyPlan | P(Pass) | P(Stress=Low) | P(Stress=Medium) | P(Stress=High) |
 |---|---|---|---|---|
 | Intense | 82.0% | 14.0% | 38.6% | 47.4% |
-| Light | 81.1% | 23.6% | 44.2% | 32.2% |
+| Light | 82.4% | 23.6% | 44.2% | 32.2% |
 | Rest | 80.0% | 42.2% | 40.6% | 17.2% |
 

@@ -75,9 +75,9 @@ The total (−1 to 5) sets the Stress distribution:
 
 | Mastery | Base P(Pass) | Intense boost | Light boost | Rest boost |
 |---|---|---|---|---|
-| Low | 0.35 | +0.25 | +0.10 | 0 |
-| Medium | 0.65 | +0.15 | +0.07 | 0 |
-| High | 0.88 | +0.05 | +0.03 | 0 |
+| Low | 0.35 | +0.25 | +0.15 | 0 |
+| Medium | 0.65 | +0.15 | +0.10 | 0 |
+| High | 0.88 | +0.05 | +0.04 | 0 |
 
 | Stress | Penalty |
 |---|---|
@@ -89,6 +89,7 @@ The total (−1 to 5) sets the Stress distribution:
 - Studying helps weaker students a lot more than students who already know the material (diminishing returns). This is what lets the system tell a struggling student from an advanced one.
 - High stress hurts exam performance, so an intense block isn't free: it raises the chance of passing but also raises stress, which partly cancels the gain.
 - P(Pass) never hits exactly 0 or 1, because nothing is certain on exam day.
+- A 1 hour light review gets more than a fifth of the benefit of a 5 hour block, because the first hour covers the most important material. *(Updated in Week 10 from +0.10/+0.07/+0.03, see [utility.md](utility.md).)*
 - P(Fail) = 1 − P(Pass).
 
 ## Inference task
