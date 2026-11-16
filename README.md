@@ -10,10 +10,13 @@ COSC 329 project, Option 3 (Bayesian Calendar), solo.
 src/
   model.py          Bayes net variables, structure and CPTs
   inference.py      Inference queries (Variable Elimination)
+  decision.py       Actions, utility function and expected utility
   calendar_api.py   Google Calendar login + create/list/delete events
 scripts/
   test_calendar.py  Checks that Calendar login works with a test event
   test_inference.py Runs test queries on example students
+  run_decision.py   Picks the best action for example students
+  sensitivity.py    Checks how the choice changes with the utility weights
   print_cpts.py     Writes every CPT to docs/cpt_tables.md
   draw_network.py   Draws the network to docs/network_draft.png
 docs/
@@ -21,6 +24,9 @@ docs/
   cpts.md           Reasoning for every CPT + the inference task
   cpt_tables.md     Full CPT tables
   week9_inference_results.md  Test query results
+  utility.md        Actions, utility function and expected utility
+  week10_decision_results.md  Best action for each example student
+  utility_sensitivity.md      Results with different utility weights
 ```
 
 ## Setup
@@ -51,6 +57,8 @@ docs/
    python -m src.model               # builds the network and validates the CPTs
    python scripts/test_inference.py  # example students -> P(Pass) and stress for each action
    python scripts/print_cpts.py      # full CPT tables
+   python scripts/run_decision.py    # expected utility of each action + best action
+   python scripts/sensitivity.py     # best action with different utility weights
    python scripts/draw_network.py
    ```
 
@@ -58,7 +66,7 @@ docs/
 
 - [x] Week 8: project setup, Calendar API connection, first draft of the network
 - [x] Week 9: CPTs, build the full network in pgmpy, test inference queries
-- [ ] Week 10: actions, utility function, expected utility
+- [x] Week 10: actions, utility function, expected utility
 - [ ] Week 11: schedule the chosen action on the calendar, simulate student scenarios
 - [ ] Week 12: results and report
 - [ ] Week 13: presentation video
