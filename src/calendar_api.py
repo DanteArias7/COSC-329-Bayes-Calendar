@@ -58,23 +58,42 @@ def create_event(service, title, start, hours, description="", calendar_id="prim
     return service.events().insert(calendarId=calendar_id, body=event).execute()
 
 
+def create_all_day_event(service, title, day, description="", calendar_id="primary"):
+    """Create an all-day event on `day` (a date). Used to mark rest days."""
+    event = {
+        "summary": f"{APP_TAG} {title}",
+        "description": description,
+        "start": {"date": day.isoformat()},
+        "end": {"date": (day + timedelta(days=1)).isoformat()},
+        "transparency": "transparent",  # shows as free, doesn't block the day
+    }
+    return service.events().insert(calendarId=calendar_id, body=event).execute()
+
+
 def list_events(service, start, end, calendar_id="primary"):
     """Return all events between two datetimes."""
-    result = service.events().list(
-        calendarId=calendar_id,
-        timeMin=start.astimezone().isoformat(),
-        timeMax=end.astimezone().isoformat(),
-        singleEvents=True,
-        orderBy="startTime",
-    ).execute()
-    return result.get("items", [])
+    events, page = [], None
+    while True:
+        result = service.events().list(
+            calendarId=calendar_id,
+            timeMin=start.astimezone().isoformat(),
+            timeMax=end.astimezone().isoformat(),
+            singleEvents=True,
+            orderBy="startTime",
+            pageToken=page,
+        ).execute()
+        events += result.get("items", [])
+        page = result.get("nextPageToken")
+        if not page:
+            return events
 
 
 def delete_planner_events(service, start, end, calendar_id="primary"):
     """Delete only the events this app created in a date range.
 
-    Used for the "rest day" action. Only touches events with APP_TAG in the
-    title so it never deletes the user's own events.
+    Used before scheduling a day (so re-running doesn't make duplicates) and
+    to clean up after a demo. Only touches events with APP_TAG in the title,
+    so it never deletes the user's own events.
     """
     deleted = 0
     for event in list_events(service, start, end, calendar_id):
