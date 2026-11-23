@@ -78,7 +78,7 @@ def main():
     text = "\n".join(lines[:4] + summary + [""] + lines[4:])
     print(text)
     out = os.path.join(ROOT, "docs", "week10_decision_results.md")
-    with open(out, "w") as f:
+    with open(out, "w", encoding="utf-8") as f:
         f.write(text + "\n")
     print("Saved", out)
 

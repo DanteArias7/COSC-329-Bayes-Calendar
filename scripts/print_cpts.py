@@ -30,7 +30,7 @@ def main():
         lines.append("")
 
     out = os.path.join(ROOT, "docs", "cpt_tables.md")
-    with open(out, "w") as f:
+    with open(out, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
     print("Saved", out)
 

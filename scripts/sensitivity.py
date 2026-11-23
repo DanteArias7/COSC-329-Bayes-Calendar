@@ -37,7 +37,7 @@ def main():
     text = "\n".join(lines)
     print(text)
     out = os.path.join(ROOT, "docs", "utility_sensitivity.md")
-    with open(out, "w") as f:
+    with open(out, "w", encoding="utf-8") as f:
         f.write(text + "\n")
     print("Saved", out)
 
