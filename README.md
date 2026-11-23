@@ -11,12 +11,18 @@ src/
   model.py          Bayes net variables, structure and CPTs
   inference.py      Inference queries (Variable Elimination)
   decision.py       Actions, utility function and expected utility
+  scheduler.py      Plans each day until the exam and puts it on the calendar
+  scenarios.py      Simulated student types
   calendar_api.py   Google Calendar login + create/list/delete events
 scripts/
   test_calendar.py  Checks that Calendar login works with a test event
   test_inference.py Runs test queries on example students
   run_decision.py   Picks the best action for example students
   sensitivity.py    Checks how the choice changes with the utility weights
+  schedule.py       Plans a student's days and adds them to Google Calendar
+  simulate_scenarios.py  Simulates every student type (no calendar)
+tests/
+  test_scheduler.py Scheduler tests with a fake calendar
   print_cpts.py     Writes every CPT to docs/cpt_tables.md
   draw_network.py   Draws the network to docs/network_draft.png
 docs/
@@ -27,6 +33,8 @@ docs/
   utility.md        Actions, utility function and expected utility
   week10_decision_results.md  Best action for each example student
   utility_sensitivity.md      Results with different utility weights
+  week11.md         How scheduling and the student scenarios work
+  week11_schedules.md         Simulated schedules for each student
 ```
 
 ## Setup
@@ -62,12 +70,25 @@ docs/
    python scripts/draw_network.py
    ```
 
+## Running the planner
+
+```
+python scripts/schedule.py --student struggling              # dry run: prints the plan
+python scripts/schedule.py --student struggling --apply      # puts it on your calendar
+python scripts/schedule.py --student average --progress --apply   # student improves over time
+python scripts/schedule.py --clear                           # removes all planner events
+python scripts/simulate_scenarios.py                         # all students, no calendar
+python tests/test_scheduler.py                               # tests (fake calendar)
+```
+
+`--student` is `struggling`, `average` or `advanced`. `--exam YYYY-MM-DD` sets the exam date (default: 10 days from today). Running `--apply` again replaces the planner's events instead of duplicating them.
+
 ## Progress
 
 - [x] Week 8: project setup, Calendar API connection, first draft of the network
 - [x] Week 9: CPTs, build the full network in pgmpy, test inference queries
 - [x] Week 10: actions, utility function, expected utility
-- [ ] Week 11: schedule the chosen action on the calendar, simulate student scenarios
+- [x] Week 11: schedule the chosen action on the calendar, simulate student scenarios
 - [ ] Week 12: results and report
 - [ ] Week 13: presentation video
 - [ ] Week 14: final submission
